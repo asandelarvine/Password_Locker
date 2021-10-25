@@ -19,7 +19,7 @@ class Credentials:
         '''
         Credentials.cred_list.append(self)
 
-         ###delete credentials###
+        ###delete credentials###
     def delete_cred(self):
         '''
         method deletes credentials
@@ -36,7 +36,7 @@ class Credentials:
             if cred.account == account:
                 return cred
 
-                 ###confirm credentials###
+             ###confirm credentials###
     @classmethod
     def cred_exists(cls,account):
         '''
@@ -62,7 +62,3 @@ class Credentials:
         find_account = Credentials.find_account(passlock)
         pyperclip.copy(find_account.passlock)
 
-
-
-
-            
