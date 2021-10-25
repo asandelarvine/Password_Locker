@@ -36,4 +36,26 @@ class TestCredentials(unittest.TestCase):
         self.new_cred.save_cred()
         self.assertEqual(len(Credentials.cred_list), 1)
 
+     ###saving multiple credentials###
+    def test_saving_multiple_cred(self):
+        '''
+        method checks whether if users can store multiple credentials
+        '''
+        self.new_cred.save_cred()
+        test_cred = Credentials("Skype", "testuser", "password")
+        test_cred.save_cred()
+        self.assertEqual(len(Credentials.cred_list), 2)
+
+
+        ###deleting credentils###
+    def test_delete_credentials(self):
+        '''
+        method tests if one can delete credentials
+        '''
+        self.new_cred.save_cred()
+        test_cred = Credentials("Skype", "testuser", "password")
+        test_cred.save_cred()
+        self.new_cred.delete_cred()
+        self.assertEqual(len(Credentials.cred_list), 1)
+
      
