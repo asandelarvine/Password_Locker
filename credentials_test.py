@@ -58,4 +58,17 @@ class TestCredentials(unittest.TestCase):
         self.new_cred.delete_cred()
         self.assertEqual(len(Credentials.cred_list), 1)
 
+
+        ###search for credentials###
+    def test_search_for_cred(self):
+        '''
+        method tests if credentials can be searched
+        '''
+        self.new_cred.save_cred()
+        test_cred = Credentials("Skype", "testuser", "password")
+        test_cred.save_cred()
+        find_cred = Credentials.find_account("Skype")
+        self.assertEqual(find_cred.account, test_cred.account)
+
+
      
