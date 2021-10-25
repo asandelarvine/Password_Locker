@@ -28,3 +28,12 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_cred.account, "GitHub")
         self.assertEqual(self.new_cred.email, "larvineasande@gmail.com")
         self.assertEqual(self.new_cred.passlock, "asande@123")
+
+    def test_save_credentials(self):
+        '''
+        checks if credentials can be saved
+        '''
+        self.new_cred.save_cred()
+        self.assertEqual(len(Credentials.cred_list), 1)
+
+     
