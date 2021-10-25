@@ -36,7 +36,7 @@ class Credentials:
             if cred.account == account:
                 return cred
 
-             ###confirm credentials###
+                 ###confirm credentials###
     @classmethod
     def cred_exists(cls,account):
         '''
@@ -63,3 +63,6 @@ class Credentials:
         pyperclip.copy(find_account.passlock)
 
 
+
+
+            
