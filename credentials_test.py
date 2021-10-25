@@ -71,4 +71,33 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(find_cred.account, test_cred.account)
 
 
+        ###confirming accounts credentials###
+    def test_confirm_cred_exists(self):
+        '''
+        method tests if credentials can be searched for
+        '''
+        self.new_cred.save_cred()
+        test_cred = Credentials("Skype","testuser","password")
+        test_cred.save_cred()
+        cred_exists = Credentials.cred_exists("Skype")
+        self.assertTrue(cred_exists)
+        
+
+        ###display credentials###
+    def test_display_credentials(self):
+        '''
+        method tests if all credentials can be displayed
+        '''
+        self.assertEqual(Credentials.display_cred(), Credentials.cred_list)
+
+        ###copy password###
+    def test_copy_password(self):
+        '''
+        method tests whether a generated password can b copied
+        '''
+        self.new_cred.save_cred()
+        Credentials.copy_passlock("asande@123")
+        self.assertEqual(self.new_cred.passlock, pyperclip.paste())
+
+
      
